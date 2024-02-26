@@ -16,14 +16,8 @@ public class FoodTruckApp {
 	public void run() {
 		Scanner sc = new Scanner(System.in);
 
-		fleet[0] = new FoodTruck("Truck 1", "Tacos", 2.5);
-		fleet[1] = new FoodTruck("Truck 2", "Tortas", 3.2);
-		fleet[2] = new FoodTruck("Truck 3", "Tamales", 4.3);
-		fleet[3] = new FoodTruck("Truck 4", "elados", 5.7);
-		fleet[4] = new FoodTruck("Truck 5", "Gyros", 3);
-
-//		addUserTrucks(sc);
-//		showMenu();
+		addUserTrucks(sc);
+		showMenu();
 		menuUserSelection(sc);
 
 		sc.close();
@@ -123,6 +117,7 @@ public class FoodTruckApp {
 				;
 				break;
 			case 4:
+				System.out.println("Thank you for your feedback. Have a nice day.");
 				selections = false;
 			}
 
