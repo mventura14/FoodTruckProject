@@ -23,7 +23,7 @@ public class FoodTruckApp {
 		fleet[4] = new FoodTruck("Truck 5", "Gyros", 3);
 
 //		addUserTrucks(sc);
-		showMenu();
+//		showMenu();
 		menuUserSelection(sc);
 
 		sc.close();
@@ -72,20 +72,21 @@ public class FoodTruckApp {
 		return fleetCopy;
 	};
 
-	public void showAverageRating() {
+	public double getAverageRating() {
 		FoodTruck[] fleetCopy = getTrucks();
-		double average = 0;
+		double ratingAverage = 0;
 
 		for (FoodTruck truck : fleetCopy) {
-			average += truck.getRating();
+			ratingAverage += truck.getRating();
 		}
 
-		average /= fleetCopy.length;
-		average = Math.round(average * 10) / 10.0;
-		System.out.println(average);
+		ratingAverage /= fleetCopy.length;
+		return ratingAverage = Math.round(ratingAverage * 10) / 10.0;
+
+
 	}
 
-	public void showHighRatedFoodTruck() {
+	public String getHighRatedFoodTruck() {
 		double highestRating = 0;
 		FoodTruck bestTruck = null;
 		FoodTruck[] fleetCopy = getTrucks();
@@ -96,23 +97,30 @@ public class FoodTruckApp {
 			}
 
 		}
-		System.out.println(bestTruck.toString());
 
+		return bestTruck.toString();
 	}
 
 	public void menuUserSelection(Scanner sc) {
+
 		boolean selections = true;
 		while (selections) {
+
+			showMenu();
 			int userSelection = sc.nextInt();
 			switch (userSelection) {
 			case 1:
 				showTrucks();
 				break;
 			case 2:
-				showAverageRating();
+				System.out.print("The average rating of our food truck fleet is: ");
+				System.out.println(getAverageRating());
+				;
 				break;
 			case 3:
-				showHighRatedFoodTruck();
+				System.out.println("The Best Food truck:");
+				System.out.println(getHighRatedFoodTruck());
+				;
 				break;
 			case 4:
 				selections = false;
